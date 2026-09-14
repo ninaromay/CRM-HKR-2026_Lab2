@@ -1,0 +1,98 @@
+:root{
+    --color-navy:       #172033;
+    --color-coral:      #FF6B4A;
+    
+    --color-blue:       #3B82F6;
+    --color-background: #F7F4EE;
+    --color-border:     #D9D4CA;
+    --color-muted:      #667085;
+    
+    --font-size-3xl:    72px;
+    --font-size-2xl:    48px;
+    --font-size-xl:     32px;
+    --font-size-l:      40px;
+    --font-size-xm:     24px;
+    --font-size-m:      20px;
+    --font-size-s:      18px;
+    --font-size-xs:     16px;
+    --font-size-2xs:    14px;
+    
+    --size-3XL:  	    8rem;
+    --size-2XL:    	    5rem;
+    --size-XL:     	    3rem;
+    --size-L:    	    2rem;
+    --size-M:    	    1.5rem;
+    --size-S:    	    1rem;
+    --size-XS:    	    0.5rem;
+    --size-2XS: 	    0.2rem;
+    
+    --line-height-heading-s:    1.1;
+    --line-height-heading-m:    1.2;
+    --line-height-body-s:       1.5;
+    --line-height-body-m:       1.7;
+    
+    --site-padding:     5vw;
+    --site-padding-xs:  3vw;
+
+    --font-heading: Georgia, serif;
+    --font-body: Arial, sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    width: 100vw;
+    background-color: var(--color-background);
+    font-family: var(--font-body);
+    font-weight: bold;
+    position: relative;
+    overflow-x: hidden;
+
+}
+
+a, a:active{
+    text-decoration: none;
+}
+
+.nav{
+    max-width: 90%;
+    background-color: var(--color-navy);
+    padding: 1vw 5vw;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-menu > a{
+    color: var(--color-coral);
+}
+
+.nav-menu{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo{
+    width: 8rem;
+}
+
+.hero{
+    width: 100vw;
+    min-height: 50vh;
+    max-height: 100vh;
+    object-fit:cover;
+    background-color: var(--color-muted);
+}
+
+.footer{
+    background-color: var(--color-navy);
+}
+
+.social-media > a > img{
+    width: 3vw;
+}
