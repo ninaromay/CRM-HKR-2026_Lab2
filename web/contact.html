@@ -3,12 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRM Contact Me</title>
+    <title>CRM About</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
-    <p>Contact</p>
+    <header class="nav">
+        <img class="nav-logo" src="images/logo-panda.png" alt="Web-logo-">
+        <nav class="nav-menu">
+            <a class="inactive"   href="index.html">   Home        </a>
+            <a class="inactive" href="gallery.html"> Gallery     </a>
+            <a class="inactive" href="about.html">   About       </a>
+            <a class="active" href="contact.html"> Contact  </a>
+        </nav>
+    </header>
+    <main class="main-contact">
+        <p>Contact me using this form:</p>
+        <form class="form" action="#">
+            <label for="name">Full name:<strong>*</strong></label>
+            <input type="text" id="name" name="name">
+            <label for="email">Email:<strong>*</strong></label>
+            <input type="text" id="email" name="email">
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject">
+            <label for="message">Message:<strong>*</strong></label>
+            <textarea name="message" id="message" placeholder="Write here..."></textarea>
+            <input type="submit" value="Send">
+        </form>
+        <p>Or via email: <a href="mailto:nina.romay@gmail.com">nina.romay@gmail.com</a></p>
+    </main>
+    <footer class="footer">
+        <nav class="nav-footer">
+            <a class="inactive" href="index.html">   Home        </a>
+            <a class="inactive" href="gallery.html"> Gallery     </a>
+            <a class="inactive" href="about.html">   About       </a>
+            <a class="active" href="contact.html"> Contact  </a>
+        </nav>
+        <div class="social-media">
+            <a href="https://www.instagram.com/shinynyancat/">
+                <img src="images/socialmedia/insta.svg" alt="Instagram-logo">
+                <p>@shinynyancat</p>
+            </a>
+            <a href="https://www.linkedin.com/in/ninaromayart/">
+                <img src="images/socialmedia/linkedin.svg" alt="Linked-in-logo">
+                <p>Nina Romay Mingo</p>
+            </a>
+            <a href="https://www.artstation.com/nyan_artist">
+                <img src="images/socialmedia/artstation.svg" alt="Artstation-logo">
+                <p>Nyan Art</p>
+            </a>
+            <a href="https://github.com/ninaromay">
+                <img src="images/socialmedia/github.svg" alt="Github-logo">
+                <p>Nina Romay Dev</p>
+            </a>
+        </div>
+        <p class="created-by">Created by Nina Romay Mingo 2026</p>
+    </footer>
 </body>
 </html>
