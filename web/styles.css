@@ -1,6 +1,6 @@
 :root{
     --color-navy:       #172033;
-    --color-coral:      #f80000;
+    --color-coral:      #FF6B4A;
     
     --color-blue:       #3B82F6;
     --color-background: #F7F4EE;
@@ -16,6 +16,7 @@
     --font-size-s:      18px;
     --font-size-xs:     16px;
     --font-size-2xs:    14px;
+    --font-size-3xs:    11px;
     
     --size-3XL:  	    8rem;
     --size-2XL:    	    5rem;
@@ -31,9 +32,10 @@
     --line-height-body-s:       1.5;
     --line-height-body-m:       1.7;
     
+    --site-padding-m:   10vw;
     --site-padding:     5vw;
     --site-padding-xs:  3vw;
-    --site-padding-2xs:  1vw;
+    --site-padding-2xs: 1.5vw;
 
     --font-heading: Georgia, serif;
     --font-body: Arial, sans-serif;
@@ -46,6 +48,11 @@
     padding: 0;
 }
 
+
+*:focus-visible{
+    border: 5px solid red;
+}
+
 body{
     width: 100vw;
     background-color: var(--color-background);
@@ -56,6 +63,14 @@ body{
 
 a, a:active{
     text-decoration: none;
+}
+
+.small-screen{
+    display: none;
+}
+
+.full-screen{
+    display: block;
 }
 
 .nav{
@@ -83,6 +98,15 @@ a, a:active{
 .active{
     color: var(--color-navy);
     background-color: var(--color-coral);
+}
+
+.inactive-footer{
+    color: var(--color-coral);
+}
+
+.active-footer{
+    color: var(--color-coral);
+    text-decoration: underline;
 }
 
 .nav-menu > a:hover, .nav-menu > a:active, .inactive:hover{
@@ -115,14 +139,45 @@ a, a:active{
 }
 
 @media screen and (max-width: 640px){
+    .nav, body, .footer{
+        overflow-x: hidden;
+    }
+
     .nav-menu > a{
-        font-size: var(--font-size-2xs);
+        font-size: var(--font-size-xs);
         padding: 0.7rem;
         font-weight: normal;
     }
     
     .nav-menu {
-        width: 80%;
+        max-width: 80vw;
+    }
+
+    .nav{
+        justify-content: flex-start;
+    }
+
+    .nav-logo{
+        width: 12vw;
+        margin-right: 5vw;
+    }
+
+    .small-screen{
+        display: block;
+    }
+    
+    .full-screen{
+        display: none;
+    }
+
+    .full-screen-txt{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 400px){
+    .nav-menu > a{
+        font-size: var(--font-size-2xs);
     }
 }
 
@@ -187,6 +242,21 @@ a, a:active{
     border: 3px solid var(--color-coral);
 }
 
+.button-learn:focus-visible{
+    background-color: var(--color-navy);
+    color: red;
+    border: 5px solid red;
+}
+
+#read-more{
+    min-width: 2rem;
+    padding: 0.1rem 0.3rem;
+    color: var(--color-navy);
+    border-radius: var(--border-radious);
+    border: 2px solid var(--color-navy);
+    font-weight: bold;
+}
+
 @media screen and (max-width: 1008px){
     #hero-text > h1{
         font-size: var(--font-size-xl);
@@ -196,6 +266,11 @@ a, a:active{
     #hero-text > h3{
         font-size: var(--font-size-s);
         padding: 0 7vw;
+    }
+
+    .button-learn{
+        padding: var(--site-padding-2xs);
+        margin: var(--site-padding) auto;
     }
 }
 
@@ -208,12 +283,18 @@ a, a:active{
         padding: 0 10vw;
     }
 
+    .hero{
+        filter: brightness(50%);
+    }
+
     #about-home > p{
         font-size: var(--font-size-2xs);
     }
 
     .button-learn{
-        font-size: var(--font-size-2xs);
+        font-size: var(--font-size-xs);
+        margin: var(--site-padding) auto;
+        padding: var(--site-padding-xs);
     }
 }
 
@@ -280,11 +361,11 @@ a, a:active{
     position: relative;
     border-radius: var(--border-radious);
     overflow: hidden;
+    transition: all 0.2s ease-in;
 }
 
 .gallery > a:hover{
     transform: scale(1.1);
-    transition: all 0.2s ease-in;
 }
 
 .gallery > a > img {
@@ -392,16 +473,16 @@ a, a:active{
     transform: translateX(-5%); 
     z-index: 1;
 }
-.main-about > section > h3{
+.main-about > section > .about-title{
     width: 70%;
 }
 
-.main-about > section > h3 > p{
+.main-about > section > p{
     font-size: var(--size-S);
     color: var(--color-muted);
 }
 
-.tab > strong, .tab > p{
+.tab > h3 > strong, .tab > p{
     margin-left: 5vw;
 }
 
@@ -478,16 +559,23 @@ a, a:active{
     margin-bottom: 0.5rem;
 }
 
-.form > input[type=text]{
+.form > input[type=text], .form > input[type=email]{
     margin-bottom: var(--site-padding-2xs);
     height: 1rem;
     padding: 0.5rem 1rem;
     border: 2px solid var(--color-navy);
 }
 
-.form > input[type=text]:focus{
+.form > input[type=text]:focus, .form > input[type=email]:focus{
     background-color: var(--color-background);
     border: 2px solid var(--color-blue);
+    color: var(--color-blue);
+    outline:none;
+}
+
+.form > input[type=text]:focus-visible, .form > input[type=email]:focus-visible, .form > textarea:focus-visible {
+    background-color: var(--color-background);
+    border: 5px solid var(--color-blue);
     color: var(--color-blue);
     outline:none;
 }
@@ -505,7 +593,7 @@ a, a:active{
     border-radius: var(--border-radious);
 }
 
-.form > input[type=submit]:hover{
+.form > input[type=submit]:hover, .form > input[type=submit]:focus-visible{
     color: var(--color-coral);
     background-color: var(--color-navy);
 }
@@ -514,13 +602,6 @@ a, a:active{
     min-height: 5rem;
     padding: 1rem;    
     border: 2px solid var(--color-navy);
-}
-
-.form > textarea:focus{
-    background-color: var(--color-background);
-    border: 2px solid var(--color-blue);
-    color: var(--color-blue);
-    outline:none;
 }
 
 .main-contact > p{
@@ -613,6 +694,7 @@ a, a:active{
     transform: translate(-50%, -50%);
     color: var(--color-muted);
     text-align: center;
+    font-size: var(--font-size-s);
 }
 
 @media screen and (max-width: 1408px){
@@ -635,23 +717,20 @@ a, a:active{
 
 @media screen and (max-width: 640px){
     .footer{
-        padding-bottom: 10vw;
+        padding-bottom: 12vw;
     }
 
     .nav-footer > a, .social-media > a > p{
-        font-size: var(--font-size-3xs);
+        font-size: var(--font-size-xs);
     }
     
     .social-media > a > img{
         width: var(--size-L);
     }
-
-    .social-media{
-        padding: 0 2rem;
-    }
-
+    
     .social-media > a{
-        width: 12rem;
+        width: 100%;
+        padding: 0 1rem;
     }
 
 }
@@ -664,3 +743,22 @@ a, a:active{
   }
 }
 
+
+@media screen and (max-width: 350px){
+    body{
+        overflow-x: hidden !important;
+    }
+
+    .nav, .nav-footer{
+        display: none;
+        pointer-events: none;
+    }
+
+    .created-by, .social-media > a > p{
+        font-size: var(--font-size-2xs);
+    }
+
+    .button-learn{
+        margin: var(--site-padding-m) auto;
+    }
+}

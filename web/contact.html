@@ -21,40 +21,44 @@
         <p>Contact me using this form:</p>
         <form class="form" action="#">
             <label for="name">Full name:<strong>*</strong></label>
-            <input type="text" id="name" name="name">
+            <input type="text" id="name" name="name" required>
             <label for="email">Email:<strong>*</strong></label>
-            <input type="text" id="email" name="email">
+            <input type="email" id="email" name="email" required>
             <label for="subject">Subject:</label>
             <input type="text" id="subject" name="subject">
             <label for="message">Message:<strong>*</strong></label>
-            <textarea name="message" id="message" placeholder="Write here..."></textarea>
+            <textarea name="message" id="message" placeholder="Write here..." required></textarea>
             <input type="submit" value="Send">
         </form>
         <p>Or via email: <a href="mailto:nina.romay@gmail.com">nina.romay@gmail.com</a></p>
     </main>
-    <footer class="footer">
+<footer class="footer">
         <nav class="nav-footer">
-            <a class="inactive" href="index.html">   Home        </a>
-            <a class="inactive" href="gallery.html"> Gallery     </a>
-            <a class="inactive" href="about.html">   About       </a>
-            <a class="active" href="contact.html"> Contact  </a>
+            <a class="inactive-footer"   href="index.html">   Home        </a>
+            <a class="inactive-footer" href="gallery.html"> Gallery     </a>
+            <a class="inactive-footer" href="about.html">   About       </a>
+            <a class="active-footer" href="contact.html"> Contact</a>
         </nav>
         <div class="social-media">
             <a href="https://www.instagram.com/shinynyancat/">
                 <img src="images/socialmedia/insta.svg" alt="Instagram-logo">
-                <p>@shinynyancat</p>
+                <p class="full-screen">@shinynyancat</p>
+                <p class="small-screen">@shiny...</p>
             </a>
             <a href="https://www.linkedin.com/in/ninaromayart/">
                 <img src="images/socialmedia/linkedin.svg" alt="Linked-in-logo">
-                <p>Nina Romay Mingo</p>
+                <p class="full-screen">Nina Romay Mingo</p>
+                <p class="small-screen">NRM</p>
             </a>
             <a href="https://www.artstation.com/nyan_artist">
                 <img src="images/socialmedia/artstation.svg" alt="Artstation-logo">
-                <p>Nyan Art</p>
+                <p class="full-screen">Nyan Art</p>
+                <p class="small-screen">NyanA</p>
             </a>
             <a href="https://github.com/ninaromay">
                 <img src="images/socialmedia/github.svg" alt="Github-logo">
-                <p>Nina Romay Dev</p>
+                <p class="full-screen">Nina Romay Dev</p>
+                <p class="small-screen">NRDev</p>
             </a>
         </div>
         <p class="created-by">Created by Nina Romay Mingo 2026</p>

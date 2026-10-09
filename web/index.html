@@ -5,12 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRM Porfolio</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.png">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" defer>
 </head>
 <body>
-    <!-- ------------------------------------------------------------ -->
-    <!-- ------------------------------------------------------------ -->
-    <!-- ------------------------------------------------------------ -->
     <header class="nav">
         <img class="nav-logo" src="images/logo-panda.png" alt="Web-logo-porfolio-NR">
         <nav class="nav-menu">
@@ -20,12 +17,8 @@
             <a class="inactive" href="contact.html"> Contact     </a>
         </nav>
     </header>
-    <!-- ------------------------------------------------------------ -->
-    <!-- ------------------------------------------------------------ -->
-    <!-- ------------------------------------------------------------ -->
-    
     <main class="main-home">
-        <img class="hero" src="images/hero.png" alt="Hero-image-home-website">
+        <img class="hero" src="images/hero.png" alt="Hero image home page website Tech Artist">
         <section id="hero-text">
             <h1>Technical Artist</h1>
             <h3>FullStack Programmer and 3D Artist</h3>
@@ -33,37 +26,43 @@
         <section id="about-home">
             <h2>A little about me...</h2>
             <p>I'm a creative and versatile professional with a background in programming, web development and 3D art. Over the years, I've worked with technologies such as HTML, CSS, JavaScript, React and WordPress while also developing my skills in digital art and 3D creation. These experiences have taught me to combine technical problem-solving with creativity and visual thinking.</p>
-            <p>Today, I'm taking my experience in a new direction by studying to become a Spanish teacher at high school level. I want to combine my technical and creative background with my passion for languages and education, creating engaging ways for students to learn and express themselves. My goal is to continue learning, building and teaching - bringing together technology, creativity and communication.</p>
-            <p>This porfolio is a piece of me, a <strong>visual story</strong> of my career, my life and the choices that led me to where I am today.</p>
+            <button id="read-more" class="small-screen">...</button>
+            <p class="full-screen-txt">Today, I'm taking my experience in a new direction by studying to become a Spanish teacher at high school level. I want to combine my technical and creative background with my passion for languages and education, creating engaging ways for students to learn and express themselves. My goal is to continue learning, building and teaching - bringing together technology, creativity and communication.</p>
+            <p class="full-screen-txt">This porfolio is a piece of me, a <strong>visual story</strong> of my career, my life and the choices that led me to where I am today.</p>
             <a class="button-learn" href="about.html">Learn more...</a>
         </section>
     </main>
     <footer class="footer">
         <nav class="nav-footer">
-            <a class="active" href="index.html">   Home        </a>
-            <a class="inactive" href="gallery.html"> Gallery     </a>
-            <a class="inactive" href="about.html">   About       </a>
-            <a class="inactive" href="contact.html"> Contact Me  </a>
+            <a class="active-footer"   href="index.html">   Home        </a>
+            <a class="inactive-footer" href="gallery.html"> Gallery     </a>
+            <a class="inactive-footer" href="about.html">   About       </a>
+            <a class="inactive-footer" href="contact.html"> Contact</a>
         </nav>
         <div class="social-media">
             <a href="https://www.instagram.com/shinynyancat/">
                 <img src="images/socialmedia/insta.svg" alt="Instagram-logo">
-                <p>@shinynyancat</p>
+                <p class="full-screen">@shinynyancat</p>
+                <p class="small-screen">@shiny...</p>
             </a>
             <a href="https://www.linkedin.com/in/ninaromayart/">
                 <img src="images/socialmedia/linkedin.svg" alt="Linked-in-logo">
-                <p>Nina Romay Mingo</p>
+                <p class="full-screen">Nina Romay Mingo</p>
+                <p class="small-screen">NRM</p>
             </a>
             <a href="https://www.artstation.com/nyan_artist">
                 <img src="images/socialmedia/artstation.svg" alt="Artstation-logo">
-                <p>Nyan Art</p>
+                <p class="full-screen">Nyan Art</p>
+                <p class="small-screen">NyanA</p>
             </a>
             <a href="https://github.com/ninaromay">
                 <img src="images/socialmedia/github.svg" alt="Github-logo">
-                <p>Nina Romay Dev</p>
+                <p class="full-screen">Nina Romay Dev</p>
+                <p class="small-screen">NRDev</p>
             </a>
         </div>
         <p class="created-by">Created by Nina Romay Mingo 2026</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
