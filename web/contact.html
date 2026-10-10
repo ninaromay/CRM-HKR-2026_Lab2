@@ -17,41 +17,50 @@
             <a class="active" href="contact.html"> Contact  </a>
         </nav>
     </header>
+
     <main class="main-contact">
         <p>Contact me using this form:</p>
+
         <form class="form" id="form" novalidate>
+            <!-- Name -->
             <label for="name">Full name:<strong>*</strong></label>
             <input type="text" 
             id="name" name="name" 
             required
             aria-describedby="name-error-msge" aria-invalid="true">
-            <span id="name-error-msge" aria-live></span>
+            <span class="form-error" id="name-error-msge" aria-live></span>
 
+            <!-- Email -->
             <label for="email">Email:<strong>*</strong></label>
             <input type="email" 
             id="email" name="email" 
             required
             aria-describedby="email-error-msge" aria-invalid="true">
-            <span id="email-error-msge"></span>
+            <span class="form-error" id="email-error-msge"></span>
 
+            <!-- Subject -->
             <label for="subject">Subject:</label>
             <input type="text" 
             id="subject" name="subject">
 
+            <!-- Message -->
             <label for="message">Message:<strong>*</strong></label>
             <textarea name="message" id="message" 
             placeholder="Write here..." required
             aria-describedby="message-error-msge" aria-invalid="true"></textarea>
-            <span id="message-error-msge"></span>
+            <span class="form-error" id="message-error-msge"></span>
 
+            <!-- Submit & Clear -->
             <div class="form-bottom">
                 <input class="form-submit" type="submit" value="Send">
                 <input class="form-reset"  type="reset"  value="Clear">
             </div>
         </form>
         <span id="form-success"></span>
+
         <p>Or via email: <a href="mailto:nina.romay@gmail.com">nina.romay@gmail.com</a></p>
     </main>
+
     <footer class="footer">
         <nav class="nav-footer">
             <a class="inactive-footer"   href="index.html">   Home        </a>

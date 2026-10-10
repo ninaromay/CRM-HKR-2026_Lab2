@@ -555,11 +555,12 @@ a, a:active{
 }
 
 .form > label{
+    margin-top: var(--site-padding-2xs);
     margin-bottom: 0.5rem;
 }
 
 .form > input[type=text], .form > input[type=email]{
-    margin-bottom: var(--site-padding-2xs);
+    
     height: 1rem;
     padding: 0.5rem 1rem;
     border: 2px solid var(--color-navy);
@@ -627,9 +628,6 @@ a, a:active{
     border: 2px solid var(--color-navy);
 }
 
-.main-contact > p{
-    margin-bottom: var(--site-padding-xs);
-}
 
 @media screen and (max-width: 1008px){
     .main-contact{
@@ -819,4 +817,10 @@ a, a:active{
         font-size: var(--font-size-xm);
         margin: 0 var(--site-padding-xs);
     }
+}
+
+/* Error Styles */
+.form-error{
+    font-size: var(--font-size-2xs);
+    margin-top: 0.5rem;
 }
