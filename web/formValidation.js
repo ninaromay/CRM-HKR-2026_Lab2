@@ -43,8 +43,11 @@ form.addEventListener("submit", function(e){
 
 
     // Valid form display message
-    // submitSuccess.textContent = "Successfully submited!"
+    submitSuccess.textContent = "Successfully submited!"
     submitSuccess.style.display = "block"
+    submitSuccess.insertAdjacentHTML('beforeend', "<a id='success-home' href='index.html'>Home</a>")
+
+    // Hide form
     form.style.display = "none"
 })
 

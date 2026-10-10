@@ -649,22 +649,28 @@ a, a:active{
         margin: 0 0 var(--site-padding-xs) 0;
     }
 
-    .form-submit, .form-reset{
-        width: 40%;
+    .form-submit, .form-reset, #form-success > a{
+        min-width: 7rem;
     }
 }
 
 @media screen and (max-width: 640px){
     .main-contact{
-        width: 70%;
+        width: 80%;
         min-height: 80vh;
     }
 
-    .form > input[type=submit]{
-        width: 50%;
+    .form-bottom > input{
+        width: 60%;
         padding: var(--site-padding-xs);
     }
+
+    .form-submit, .form-reset{
+        max-width: 2rem;
+        display: block;
+    }
 }
+
 
 .footer{
     padding: var(--site-padding-2xs) var(--site-padding) var(--site-padding-xs);
@@ -796,7 +802,21 @@ a, a:active{
 }
 
 #form-success > a{
-    margin-top: var(--site-padding-xs);
+    margin: var(--site-padding-xs) auto;
     display: block;
     text-align: center;
+}
+
+@media screen and (max-width: 640px){
+    #form-success{
+        font-size: var(--font-size-l);
+        margin-bottom: var(--site-padding);
+    }
+}
+
+@media screen and (max-width: 350px){
+    #form-success{
+        font-size: var(--font-size-xm);
+        margin: 0 var(--site-padding-xs);
+    }
 }
