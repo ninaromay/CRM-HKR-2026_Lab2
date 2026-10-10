@@ -541,7 +541,6 @@ a, a:active{
 }
 
 /* Contact */
-
 .main-contact{
     color: var(--color-navy);
     padding: var(--site-padding-xs) 0;
@@ -580,26 +579,45 @@ a, a:active{
     outline:none;
 }
 
-.form > input[type=submit]{
-    width: 20%;
+.form-bottom{
+    display: flex;
+    max-width: 80vw;
+}
+
+.form-bottom > input{
+    width: 10vw;
     margin: var(--site-padding-2xs) auto;
     padding: var(--site-padding-2xs);
-    background-color: var(--color-highlight);
-    border: 3px solid var(--color-navy);
-    color: var(--color-navy);
     text-transform: uppercase;
     font-size: var(--size-S);
     font-weight: bold;
     border-radius: var(--border-radious);
 }
 
-.form > input[type=submit]:hover{
+.form-submit{
+    border: 3px solid var(--color-navy);
+    background-color: var(--color-highlight);
+    color: var(--color-navy);
+}
+
+.form-submit:hover {
     color: var(--color-highlight);
     border: 3px solid var(--color-highlight);
     background-color: var(--color-navy);
 }
 
-.form > input[type=submit]:focus-visible{
+.form-reset{
+    border: 3px solid var(--color-blue);
+    background-color: var(--color-background);
+    color: var(--color-blue);
+}
+
+.form-reset:hover{
+    color: var(--color-navy);
+    border: 3px solid var(--color-navy);
+}
+
+.form-submit:focus-visible, .form-reset:focus-visible{
     border: 5px solid red;
 }
 
@@ -631,8 +649,8 @@ a, a:active{
         margin: 0 0 var(--site-padding-xs) 0;
     }
 
-    .form > input[type=submit]{
-        width: 30%;
+    .form-submit, .form-reset{
+        width: 40%;
     }
 }
 
