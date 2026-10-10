@@ -805,6 +805,7 @@ a, a:active{
     color: var(--color-blue);
     font-weight: bold;
     font-size: var(--font-size-2xl);
+    margin-top: 2rem;
 }
 
 #form-success > a{

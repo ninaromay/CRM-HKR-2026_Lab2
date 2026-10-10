@@ -82,8 +82,6 @@ nameInput.addEventListener("input", function(e){
     e.preventDefault();
     let nameValue = nameInput.value.trim();
 
-
-
     if(nameValue.length == 0) {
         setError(nameInput, nameError, "An empty name is not valid.");
         nameInput.style.borderColor = "red";
@@ -92,7 +90,7 @@ nameInput.addEventListener("input", function(e){
     }
     else if(!startRegex.test(nameValue)){
         // console.log("Error start");
-        setError(nameInput, nameError, `${nameValue} is not a valid name. Must start wit;h valid characters, no numbers or special characters.`);
+        setError(nameInput, nameError, `${nameValue} is not a valid name. Must start with valid characters, no numbers or special characters.`);
         nameInput.style.borderColor = "red";
         nameInput.style.color = "red";
         nameError.style.color = "red";
@@ -116,12 +114,6 @@ emailInput.addEventListener("input", function(e){
     e.preventDefault();
     let emailValue = emailInput.value.trim();
 
-    if (count <= 15){
-        updateCount(count + emailValue.length);
-    } else {
-        liveCounter.textContent = "+15"
-        liveCounter.style.color = "green";
-    } 
 
     if(emailValue.length == 0) {
         setError(emailInput, emailError, "An empty email is not valid.");
@@ -212,26 +204,46 @@ subjectInput.addEventListener("click", function(e){
 
 // Form interaction
 form.addEventListener("submit", function(e){
-    e.preventDefault()
-    console.log("submit")
+    e.preventDefault();
+    // console.log("submit")
 
-    console.log(isName)
-    console.log(isEmail)
-    console.log(isMessage)
-    console.log(isSubject)
+    // console.log(isName)
+    // console.log(isEmail)
+    // console.log(isMessage)
+    // console.log(isSubject)
 
     // Missing more than one
     if(!isName || !isEmail || !isMessage || !isSubject){
-        alert("You are missing information")
+        alert("You are missing information");
     } else {
         window.scrollTo(0, 0);
         // Valid form display message
-        submitSuccess.textContent = "Successfully submited!"
-        submitSuccess.style.display = "block"
-        submitSuccess.insertAdjacentHTML('beforeend', "<a id='success-home' href='index.html'>Home</a>")
+        submitSuccess.textContent = "Successfully submited!";
+        submitSuccess.style.display = "block";
+        submitSuccess.insertAdjacentHTML('beforeend', "<a id='success-home' href='index.html'>Home</a>");
         
         // Hide form
-        form.style.display = "none"
+        form.style.display = "none";
+
+        // Show and reset after 4 seconds
+        setTimeout(() => {
+            form.style.display = 'flex';
+            submitSuccess.style.display = "none";
+            form.reset();
+
+            // Reset counter
+            liveCounter.textContent = count;
+
+            // Reset styles
+            nameInput.style.borderColor = "2px solid var(--color-navy)";
+            nameInput.style.color = "2px solid var(--color-navy)";
+            emailInput.style.borderColor = "2px solid var(--color-navy)";
+            emailInput.style.color = "2px solid var(--color-navy)";
+            messageInput.style.borderColor = "2px solid var(--color-navy)";
+            messageInput.style.color = "2px solid var(--color-navy)";
+            subjectInput.style.color = "2px solid var(--color-navy)";
+            subjectInput.style.borderColor = "2px solid var(--color-navy)";
+
+        }, 4000);
     }
 });
-
