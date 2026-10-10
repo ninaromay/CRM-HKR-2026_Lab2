@@ -19,18 +19,34 @@
     </header>
     <main class="main-contact">
         <p>Contact me using this form:</p>
-        <form class="form" action="#">
+        <form class="form" novalidate>
             <label for="name">Full name:<strong>*</strong></label>
-            <input type="text" id="name" name="name" required>
+            <input type="text" 
+            id="name" name="name" 
+            required
+            aria-describedby="name-error-msge" aria-invalid="true">
+            <span id="name-error-msge" aria-live></span>
+
             <label for="email">Email:<strong>*</strong></label>
-            <input type="email" id="email" name="email" required>
+            <input type="email" 
+            id="email" name="email" 
+            required
+            aria-describedby="email-error-msge" aria-invalid="true">
+            <span id="email-error-msge"></span>
+
             <label for="subject">Subject:</label>
-            <input type="text" id="subject" name="subject">
+            <input type="text" 
+            id="subject" name="subject">
+
             <label for="message">Message:<strong>*</strong></label>
-            <textarea name="message" id="message" placeholder="Write here..." required></textarea>
+            <textarea name="message" id="message" 
+            placeholder="Write here..." required
+            aria-describedby="message-error-msge" aria-invalid="true"></textarea>
+            <span id="message-error-msge"></span>
+
             <div class="form-bottom">
                 <input class="form-submit" type="submit" value="Send">
-                <input class="form-reset" type="reset" value="Clear">
+                <input class="form-reset"  type="reset"  value="Clear">
             </div>
         </form>
         <p>Or via email: <a href="mailto:nina.romay@gmail.com">nina.romay@gmail.com</a></p>
@@ -38,9 +54,9 @@
 <footer class="footer">
         <nav class="nav-footer">
             <a class="inactive-footer"   href="index.html">   Home        </a>
-            <a class="inactive-footer" href="gallery.html"> Gallery     </a>
-            <a class="inactive-footer" href="about.html">   About       </a>
-            <a class="active-footer" href="contact.html"> Contact</a>
+            <a class="inactive-footer" href="gallery.html">   Gallery     </a>
+            <a class="inactive-footer" href="about.html">     About       </a>
+            <a class="active-footer" href="contact.html">     Contact</a>
         </nav>
         <div class="social-media">
             <a href="https://www.instagram.com/shinynyancat/">
@@ -66,5 +82,6 @@
         </div>
         <p class="created-by">Created by Nina Romay Mingo 2026</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>

@@ -15,3 +15,4 @@ const fullTxt = document.getElementsByClassName("full-screen-txt");
 readMore.addEventListener("click", function(){
     clickAndShow(fullTxt, readMore)
 })
+
