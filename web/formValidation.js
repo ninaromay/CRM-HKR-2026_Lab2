@@ -1,3 +1,9 @@
+// Minimun character count
+let count = 0;
+
+const liveCounter = document.getElementById("live-counter");
+liveCounter.textContent = count;
+
 // All form validation
 const nameMin = 4;
 const emailMin = 8;
@@ -50,30 +56,56 @@ function clearError(input, error){
     error.textContent = "";
 }
 
+function calculateTotal(arr){
+    const total = arr.reduce((tot, inp) => tot + inp.value.length, 0)
+    liveCounter.textContent = total;
+
+    if(total >= 15){
+        liveCounter.textContent = "+15"
+        liveCounter.style.color = "green"
+    } else {
+        liveCounter.style.color = "red"
+    }
+}
+
+// Global counter
+form.addEventListener("input", function(e){
+    e.preventDefault();
+
+    const inputGroup = [nameInput, emailInput, messageInput]
+    calculateTotal(inputGroup)
+})
+
 
 // Name validator
 nameInput.addEventListener("input", function(e){
     e.preventDefault();
     let nameValue = nameInput.value.trim();
 
+
+
     if(nameValue.length == 0) {
         setError(nameInput, nameError, "An empty name is not valid.");
         nameInput.style.borderColor = "red";
+        nameInput.style.color = "red";
         nameError.style.color = "red";
     }
     else if(!startRegex.test(nameValue)){
         // console.log("Error start");
         setError(nameInput, nameError, `${nameValue} is not a valid name. Must start wit;h valid characters, no numbers or special characters.`);
         nameInput.style.borderColor = "red";
+        nameInput.style.color = "red";
         nameError.style.color = "red";
     } else if(nameValue.length <= nameMin){
         // console.log("Error length");
         setError(nameInput, nameError, `${nameValue} is not a valid name, it's under ${nameMin} characters.`);
         nameInput.style.borderColor = "orange";
+        nameInput.style.color = "orange";
         nameError.style.color = "orange";
     } else {
         // console.log("Valid")
-        nameInput.style.borderColor = "#3B82F6";
+        nameInput.style.borderColor = "green";
+        nameInput.style.color = "green";
         clearError(nameInput, nameError);
         isName = true;
     }
@@ -84,29 +116,41 @@ emailInput.addEventListener("input", function(e){
     e.preventDefault();
     let emailValue = emailInput.value.trim();
 
+    if (count <= 15){
+        updateCount(count + emailValue.length);
+    } else {
+        liveCounter.textContent = "+15"
+        liveCounter.style.color = "green";
+    } 
+
     if(emailValue.length == 0) {
         setError(emailInput, emailError, "An empty email is not valid.");
         emailInput.style.borderColor = "red";
+        emailInput.style.color = "red";
         emailError.style.color = "red";
     }
     else if(!startRegex.test(emailValue)){
         // console.log("Error start");
         setError(emailInput, emailError, `${emailValue} is not a valid email. Cannot start with a number or special character.`);
         emailInput.style.borderColor = "red";
+        emailInput.style.color = "red";
         emailError.style.color = "red";
     }
     else if(!emailRegex.test(emailValue)){
         setError(emailInput, emailError, `${emailValue} is not a valid email. The format must contain '@' and a valid domain.`);
         emailInput.style.borderColor = "orange";
+        emailInput.style.color = "orange";
         emailError.style.color = "orange";
     } else if(emailValue.length <= emailMin){
         // console.log("Error length");
         setError(emailInput, emailError, `${emailValue} is not a valid email, it's under ${emailMin} characters.`);
         emailInput.style.borderColor = "orange";
+        emailInput.style.color = "orange";
         emailError.style.color = "orange";
     } else {
         // console.log("Valid");
-        emailInput.style.borderColor = "#3B82F6";
+        emailInput.style.borderColor = "green";
+        emailInput.style.color = "green";
         clearError(emailInput, emailError);
         isEmail = true;
     }
@@ -131,10 +175,12 @@ messageInput.addEventListener("input", function(e){
         // console.log("Error length")
         setError(messageInput, messageError, `${messageValue} is not a valid message, it's under ${messageMin} characters.`)
         messageInput.style.borderColor = "orange"
+        messageInput.style.color = "orange"
         messageError.style.color = "orange"
     } else {
         // console.log("Valid")
-        messageInput.style.borderColor = "#3B82F6"
+        messageInput.style.borderColor = "green"
+        messageInput.style.color = "green"
         clearError(messageInput, messageError)
         isMessage = true;
     }
@@ -143,17 +189,20 @@ messageInput.addEventListener("input", function(e){
 // Subject Validator
 subjectInput.addEventListener("click", function(e){
     e.preventDefault();
-    let subjectValue = subjectInput.value.trim();
+    let subjectValue = this.value.trim();
     
     if(subjectSelected > 0){
         // console.log(subjectValue);
         if(subjectValue.value == ""){
             console.log("not selected");
-            setError(subjectInput, subjectError, "An option must be selected.");
-            subjectInput.style.borderColor = "red";
+            setError(this, subjectError, "An option must be selected.");
+            this.style.borderColor = "red";
             subjectError.style.borderColor = "red";
         } else {
             isSubject = true;
+            this.classList.toggle('is-selected');
+            this.style.borderColor = "green";
+            this.style.color = "green"
         }
         subjectSelected = 0;
     }
@@ -185,5 +234,4 @@ form.addEventListener("submit", function(e){
         form.style.display = "none"
     }
 });
-
 
