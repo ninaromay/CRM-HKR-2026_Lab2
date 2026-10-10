@@ -584,7 +584,7 @@ a, a:active{
     max-width: 80vw;
 }
 
-.form-bottom > input{
+.form-bottom > input, #form-success > a{
     width: 10vw;
     margin: var(--site-padding-2xs) auto;
     padding: var(--site-padding-2xs);
@@ -594,13 +594,13 @@ a, a:active{
     border-radius: var(--border-radious);
 }
 
-.form-submit{
+.form-submit, #form-success > a{
     border: 3px solid var(--color-navy);
     background-color: var(--color-highlight);
     color: var(--color-navy);
 }
 
-.form-submit:hover {
+.form-submit:hover, #form-success > a:hover{
     color: var(--color-highlight);
     border: 3px solid var(--color-highlight);
     background-color: var(--color-navy);
@@ -784,4 +784,19 @@ a, a:active{
     .button-learn{
         margin: var(--site-padding-m) auto;
     }
+}
+
+
+/* Form validation */
+#form-success{
+    min-height: 20vw;
+    color: var(--color-blue);
+    font-weight: bold;
+    font-size: var(--font-size-2xl);
+}
+
+#form-success > a{
+    margin-top: var(--site-padding-xs);
+    display: block;
+    text-align: center;
 }

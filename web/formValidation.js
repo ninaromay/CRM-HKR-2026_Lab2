@@ -2,6 +2,10 @@
 const nameMin = 4
 const emailMin = 8
 
+let isName = true
+let isEmail = true
+let isMessage = true
+
 let isValid = true
 let invalidField = null
 
@@ -12,6 +16,8 @@ const form = document.getElementById("form")
 const nameInput = document.getElementById("name")
 const emailInput = document.getElementById("email")
 const messageInput = document.getElementById("message")
+
+const submitSuccess = document.getElementById("form-success")
 
 // Helper Functions / Accessibility 
 function setError(input, error, message){
@@ -35,12 +41,14 @@ function clearError(input, error){
 form.addEventListener("submit", function(e){
     e.preventDefault()
 
-    // Name validator
-    if(nameInput.value.trim() ){
 
-    }
+    // Valid form display message
+    // submitSuccess.textContent = "Successfully submited!"
+    submitSuccess.style.display = "block"
+    form.style.display = "none"
 })
 
+// Name validator
 nameInput.addEventListener("input", function(e){
     e.preventDefault()
 
