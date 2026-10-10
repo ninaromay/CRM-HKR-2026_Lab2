@@ -39,12 +39,17 @@
             <span class="form-error" id="email-error-msge"></span>
 
             <!-- Subject -->
-            <label for="subject">Subject:</label>
-            <input type="text" 
-            id="subject" name="subject">
+            <label for="subject">Topic of interest:<strong>*</strong></label>
+            <select name="subject" id="subject" required>
+                <option value="" disabled selected>-- Please select a topic --</option>
+                <option value="tech">Tech stack</option>
+                <option value="design">3D and Design</option>
+                <option value="business">Work chances</option>
+            </select>
+            <span id="subject-error-msge" class="error-message" role="alert"></span>
 
             <!-- Message -->
-            <label for="message">Message:<strong>*</strong></label>
+            <label for="message">Comments:<strong>*</strong></label>
             <textarea name="message" id="message" 
             placeholder="Write here..." required
             aria-describedby="message-error-msge" aria-invalid="true"></textarea>
