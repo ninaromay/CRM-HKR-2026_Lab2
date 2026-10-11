@@ -27,6 +27,9 @@ const emailInput = document.getElementById("email");
 const messageInput = document.getElementById("message");
 const subjectInput = document.getElementById("subject");
 
+// Input optional
+const urlInput = document.getElementById("website")
+
 // Error msges
 const nameError = document.getElementById("name-error-msge");
 const emailError = document.getElementById("email-error-msge");
@@ -72,7 +75,7 @@ function calculateTotal(arr){
 form.addEventListener("input", function(e){
     e.preventDefault();
 
-    const inputGroup = [nameInput, emailInput, messageInput]
+    const inputGroup = [nameInput, emailInput, messageInput, urlInput]
     calculateTotal(inputGroup)
 })
 

@@ -48,7 +48,6 @@
     padding: 0;
 }
 
-
 *:focus-visible{
     border: 5px solid red;
 }
@@ -182,7 +181,6 @@ a, a:active{
 }
 
 /* Home */
-
 .main-home{
     position: relative;
 }
@@ -299,7 +297,6 @@ a, a:active{
 }
 
 /* Gallery */
-
 .main-gallery{
     padding: var(--site-padding-xs) 10vw;
 }
@@ -458,7 +455,6 @@ a, a:active{
 }
 
 /* About */
-
 .main-about{
     padding: var(--site-padding-xs) var(--site-padding);
 }
@@ -559,7 +555,7 @@ a, a:active{
     margin-bottom: 0.5rem;
 }
 
-.form > input[type=text], .form > input[type=email] {
+.form > input[type=text], .form > input[type=email], .form > input[type=url] {
     height: 1rem;
     padding: 0.5rem 1rem;
     border: 2px solid var(--color-navy);
@@ -572,15 +568,14 @@ a, a:active{
     transition: color 200ms ease-in-out, border-color 200ms ease-in-out;
 }
 
-
-.form > input[type=text]:focus, .form > input[type=email]:focus, #subject:focus-visible{
+.form > input[type=text]:focus, .form > input[type=email]:focus, #subject:focus-visible, form > input[type=url]:focus{
     background-color: var(--color-background);
     border: 2px solid var(--color-blue);
     color: var(--color-blue);
     outline:none;
 }
 
-.form > input[type=text]:focus-visible, .form > input[type=email]:focus-visible, .form > textarea:focus-visible {
+.form > input[type=text]:focus-visible, .form > input[type=email]:focus-visible, .form > textarea:focus-visible, form > input[type=url]:focus-visible {
     background-color: var(--color-background);
     border: 5px solid var(--color-blue);
     color: var(--color-blue);
@@ -636,7 +631,6 @@ a, a:active{
     border: 2px solid var(--color-navy);
 }
 
-
 @media screen and (max-width: 1008px){
     .main-contact{
         width: 60%;
@@ -678,6 +672,7 @@ a, a:active{
 }
 
 
+/* Footer */
 .footer{
     padding: var(--site-padding-2xs) var(--site-padding) var(--site-padding-xs);
     background-color: var(--color-navy);
@@ -770,14 +765,12 @@ a, a:active{
 
 }
 
-
 @media (prefers-reduced-motion: reduce) {
   * {
     animation: none !important;
     transition: none !important;
   }
 }
-
 
 @media screen and (max-width: 350px){
     body{
