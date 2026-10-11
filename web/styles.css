@@ -50,6 +50,8 @@
 
 *:focus-visible{
     border: 5px solid red;
+    font-size: var(--font-size-m);
+    font-weight: bolder;
 }
 
 body{
@@ -241,7 +243,7 @@ a, a:active{
 }
 
 .button-learn:focus-visible{
-    background-color: var(--color-navy);
+    background-color: var(--color-background);
     color: red;
     border: 5px solid red;
 }
@@ -301,10 +303,6 @@ a, a:active{
 }
 
 /* Filter */
-.filter-container{
-
-}
-
 .filter-container > .filter-btn{
     min-width: 10%;
     border-radius: 24px;
@@ -318,7 +316,7 @@ a, a:active{
     border: 2px solid var(--color-highlight);
 }
 
-.filter-container > .inactive-filter:hover, .filter-container > .inactive-filter:focus-visible{
+.filter-container > .inactive-filter:hover{
     background-color: var(--color-highlight);
     color: var(--color-navy);
     border: 2px solid var(--color-navy);
@@ -330,10 +328,10 @@ a, a:active{
     border: 2px solid var(--color-navy);
 }
 
-.active-filter:focus-visible{
-    background-color: var(--color-navy);
-    color: red;
-    border-color: red;
+.active-filter:focus-visible, .filter-container > .inactive-filter:focus-visible{
+    background-color: var(--color-background);
+    color: red !important;
+    border: 6px solid red !important;
 }
 
 @media screen and (max-width: 1200px){

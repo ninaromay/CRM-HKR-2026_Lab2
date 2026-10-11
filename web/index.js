@@ -161,21 +161,23 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Filtering
-const allSkills     = document.getElementById("btn-all")
-const frontSkills   = document.getElementById("btn-front")
-const backSkills    = document.getElementById("btn-back")
-const fullSkills    = document.getElementById("btn-full")
-const androidSkills = document.getElementById("btn-android")
+const allSkills     = document.getElementById("btn-all");
+const frontSkills   = document.getElementById("btn-front");
+const backSkills    = document.getElementById("btn-back");
+const fullSkills    = document.getElementById("btn-full");
+const androidSkills = document.getElementById("btn-android");
 
-const arrSkills = [ allSkills, frontSkills, backSkills, fullSkills, androidSkills ]
+const arrSkills = [ allSkills, frontSkills, backSkills, fullSkills, androidSkills ];
 
 allSkills.addEventListener("click", function(e){
-    e.preventDefault()
+    e.preventDefault();
 
     arrSkills.forEach(skill => {
         if(skill.classList.contains("active-filter")) {
             skill.classList.remove("active-filter");
             skill.classList.add("inactive-filter");
+
+            skill.setAttribute('aria-pressed', 'false');
         }
     });
 
@@ -183,23 +185,96 @@ allSkills.addEventListener("click", function(e){
 
     this.classList.add("active-filter");
     this.classList.remove("inactive-filter");
+    this.setAttribute('aria-pressed', 'true');
 
     cardGenerator(skills);
 
-})
+});
 
 frontSkills.addEventListener("click", function(e){
     e.preventDefault();
 
+    arrSkills.forEach(skill => {
+        if(skill.classList.contains("active-filter")) {
+            skill.classList.remove("active-filter");
+            skill.classList.add("inactive-filter");
+
+            skill.setAttribute('aria-pressed', 'false');
+        }
+    });
+
     cardContainer.innerHTML = "";
+
+    this.classList.add("active-filter");
+    this.classList.remove("inactive-filter");
+    this.setAttribute('aria-pressed', 'true');
+
     const newArr = skills.filter(skill => skill.category === "Front-end");
     cardGenerator(newArr);
-})
+});
 
 backSkills.addEventListener("click", function(e){
     e.preventDefault();
 
+    arrSkills.forEach(skill => {
+        if(skill.classList.contains("active-filter")) {
+            skill.classList.remove("active-filter");
+            skill.classList.add("inactive-filter");
+
+            skill.setAttribute('aria-pressed', 'false');
+        }
+    });
+
     cardContainer.innerHTML = "";
+
+    this.classList.add("active-filter");
+    this.classList.remove("inactive-filter");
+    this.setAttribute('aria-pressed', 'true');
+
     const newArr = skills.filter(skill => skill.category === "Back-end");
     cardGenerator(newArr);
-})
+});
+
+fullSkills.addEventListener("click", function(e){
+    e.preventDefault();
+
+    arrSkills.forEach(skill => {
+        if(skill.classList.contains("active-filter")) {
+            skill.classList.remove("active-filter");
+            skill.classList.add("inactive-filter");
+
+            skill.setAttribute('aria-pressed', 'false');
+        }
+    });
+
+    cardContainer.innerHTML = "";
+
+    this.classList.add("active-filter");
+    this.classList.remove("inactive-filter");
+    this.setAttribute('aria-pressed', 'true');
+
+    const newArr = skills.filter(skill => skill.category === "FullStack");
+    cardGenerator(newArr);
+});
+
+androidSkills.addEventListener("click", function(e){
+    e.preventDefault();
+
+    arrSkills.forEach(skill => {
+        if(skill.classList.contains("active-filter")) {
+            skill.classList.remove("active-filter");
+            skill.classList.add("inactive-filter");
+
+            skill.setAttribute('aria-pressed', 'false');
+        }
+    });
+
+    cardContainer.innerHTML = "";
+
+    this.classList.add("active-filter");
+    this.classList.remove("inactive-filter");
+    this.setAttribute('aria-pressed', 'true');
+
+    const newArr = skills.filter(skill => skill.category === "Android");
+    cardGenerator(newArr);
+});
