@@ -17,11 +17,25 @@ readMore.addEventListener("click", function(){
 })
 
 
+// Cards
+let currentCards = [];
+let activeProperty = "";
+
 // Card container
-const cardContainer = document.getElementById("card-container")
+const cardContainer = document.getElementById("card-container");
+const totalSkills = document.getElementById("total-skills");
+const currentSkills = document.getElementById("current-skills");
 
 // Function cards
+function updateCards(arr){
+    currentCards = arr;
+    currentSkills_counter = currentCards.length;
+    currentSkills.textContent = currentCards.length;
+}
+
 function cardGenerator(arr){
+    cardContainer.innerHTML = "";
+
     arr.forEach(card => {
         let node = document.createElement("div")
         node.className = `card card-${card.name.toLowerCase()}`;
@@ -48,8 +62,33 @@ function cardGenerator(arr){
                 stars.innerHTML += `<img class="star" src="images/other/empty_star.svg" alt="Star Proficiency skill"/>`
             }
         }
-
     });
+
+    updateCards(arr);
+}
+
+function sortBy(arr, prop){
+    switch (prop){
+        case "name":
+            currentCards = arr.sort((first, second) => 
+                first[prop].localeCompare(second[prop])
+            );
+            break;
+        case "years":
+            currentCards = arr.sort((first, second) => 
+                second.yearsExperience - first.yearsExperience
+            );
+            break;
+        case "prof":
+            currentCards = arr.sort((first, second) => 
+                second.proficiency - first.proficiency
+            );
+            break;
+        default:
+            break;
+    }
+
+    cardGenerator(currentCards);
 }
 
 // Cards
@@ -89,7 +128,7 @@ const skills = [
         "name": "PHP",
         "category": "Back-end",
         "proficiency": 3,
-        "yearsExperience" : 3,
+        "yearsExperience" : 0.5,
         "description" : "A general-purpose scripting language suited for web development. Fast, flexible and pragmatic, PHP powers from your blog to the most popular websites in the world.",
         "img" : "images/code/3 php.webp",
         "sort": "tech",
@@ -118,7 +157,7 @@ const skills = [
         "id": 6,
         "name": "Laravel",
         "category": "Framework",
-        "proficiency": 1,
+        "proficiency": 2,
         "yearsExperience" : 0.5,
         "description" : "Laravel is a framework for building modern web apps and AI agents. Expressive syntax, built-in tools, and everything you need to ship fast.",
         "img" : "images/code/6 laravel.svg",
@@ -138,7 +177,7 @@ const skills = [
         "id": 8,
         "name": "Python",
         "category": "Back-end",
-        "proficiency": 1,
+        "proficiency": 2,
         "yearsExperience" : 0.5,
         "description" : "Python is a programming language that lets you work quickly and integrate systems more effectively.",
         "img" : "images/code/8 python.svg",
@@ -148,16 +187,21 @@ const skills = [
         "id": 9,
         "name": "Kotlin",
         "category": "Android",
-        "proficiency": 1,
-        "yearsExperience" : 0.5,
+        "proficiency": 0,
+        "yearsExperience" : 0,
         "description" : "Null safety and concise syntax already make Kotlin a language AI gets right. We’re making it even better with open benchmarks and agent-ready tooling.",
         "img" : "images/code/9 kotlin.svg",
         "sort": "tech",
     }
 ];
 
+let totalSkills_counter = skills.length;
+let currentSkills_counter = currentCards.length;
+
 document.addEventListener("DOMContentLoaded", () => {
     cardGenerator(skills);
+    totalSkills.textContent = skills.length
+    currentSkills.textContent = currentCards.length
 });
 
 // Filtering
@@ -181,14 +225,11 @@ allSkills.addEventListener("click", function(e){
         }
     });
 
-    cardContainer.innerHTML = "";
-
     this.classList.add("active-filter");
     this.classList.remove("inactive-filter");
     this.setAttribute('aria-pressed', 'true');
 
     cardGenerator(skills);
-
 });
 
 frontSkills.addEventListener("click", function(e){
@@ -203,14 +244,13 @@ frontSkills.addEventListener("click", function(e){
         }
     });
 
-    cardContainer.innerHTML = "";
-
     this.classList.add("active-filter");
     this.classList.remove("inactive-filter");
     this.setAttribute('aria-pressed', 'true');
 
     const newArr = skills.filter(skill => skill.category === "Front-end");
     cardGenerator(newArr);
+    console.log(currentCards);
 });
 
 backSkills.addEventListener("click", function(e){
@@ -225,14 +265,13 @@ backSkills.addEventListener("click", function(e){
         }
     });
 
-    cardContainer.innerHTML = "";
-
     this.classList.add("active-filter");
     this.classList.remove("inactive-filter");
     this.setAttribute('aria-pressed', 'true');
 
     const newArr = skills.filter(skill => skill.category === "Back-end");
     cardGenerator(newArr);
+    console.log(currentCards);
 });
 
 fullSkills.addEventListener("click", function(e){
@@ -247,14 +286,13 @@ fullSkills.addEventListener("click", function(e){
         }
     });
 
-    cardContainer.innerHTML = "";
-
     this.classList.add("active-filter");
     this.classList.remove("inactive-filter");
     this.setAttribute('aria-pressed', 'true');
 
     const newArr = skills.filter(skill => skill.category === "FullStack");
     cardGenerator(newArr);
+    console.log(currentCards);
 });
 
 androidSkills.addEventListener("click", function(e){
@@ -269,12 +307,39 @@ androidSkills.addEventListener("click", function(e){
         }
     });
 
-    cardContainer.innerHTML = "";
-
     this.classList.add("active-filter");
     this.classList.remove("inactive-filter");
     this.setAttribute('aria-pressed', 'true');
 
     const newArr = skills.filter(skill => skill.category === "Android");
     cardGenerator(newArr);
+    console.log(currentCards);
 });
+
+// Sorting
+const sortName  = document.getElementById("sort-name");
+const sortProf  = document.getElementById("sort-prof");
+const sortYears = document.getElementById("sort-years");
+
+sortName.addEventListener("click", function(e){
+    e.preventDefault();
+    activeProperty = "name";
+    sortBy(currentCards, activeProperty);
+});
+
+sortProf.addEventListener("click", function(e){
+    e.preventDefault();
+    activeProperty = "prof";
+    sortBy(currentCards, activeProperty);
+});
+
+sortYears.addEventListener("click", function(e){
+    e.preventDefault();
+    activeProperty = "years";
+    sortBy(currentCards, activeProperty);
+});
+
+
+/*"name": "HTML"
+  "proficiency": 5
+  "yearsExperience" : 3*/

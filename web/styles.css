@@ -257,7 +257,7 @@ a, a:active{
     font-weight: bold;
 }
 
-@media screen and (max-width: 1108px){
+@media screen and (max-width: 1100px){
     .site-padding{
         padding: 3vw 4vw;
     }
@@ -297,12 +297,30 @@ a, a:active{
 
     .button-learn{
         font-size: var(--font-size-xs);
-        margin: var(--site-padding) auto;
-        padding: var(--site-padding-xs);
+        margin-top: var(--site-padding);
+        margin-bottom: var(--site-padding);
+        margin-left: 60vw;
+        padding: var(--site-padding-xs) 0.2rem;
+        font-weight: normal;
+        width: 8rem;
+    }
+}
+
+@media screen and (max-width: 450px){
+    .button-learn{
+        width: 5rem;
     }
 }
 
 /* Filter */
+#filtering{
+    position: relative;
+}
+
+.filter-container{
+    transition: all .4s ease-in;
+}
+
 .filter-container > .filter-btn{
     min-width: 10%;
     border-radius: 24px;
@@ -334,9 +352,83 @@ a, a:active{
     border: 6px solid red !important;
 }
 
+/* Sorting */
+.sort-container{
+    position: absolute;
+    top: 3.9rem;
+    right: 7vw;
+    z-index: 1;
+}
+
+.sort-btn{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 12px;
+    padding: 0.2rem;
+    margin: 0 0.5rem;
+    transition: all 0.3 ease-in;
+}
+
+.sort-inactive{
+    border: 2px solid var(--color-muted);
+    background-color: var(--color-background);
+}
+
+.sort-active{
+    border: 2px solid var(--color-blue);
+    border-radius: 12px;
+    transform: scale(1.2);
+}
+
+.sort-inactive:hover{
+    border: 2px solid var(--color-blue);
+    border-radius: 12px;
+    transform: scale(1.2);
+}
+
+.sort-inactive:focus-visible{
+    background-color: red;
+    transform: scale(1.2);
+    border-color: red;
+}
+
+.sort-btn > img{
+    width: 100%;
+}
+
+.sorted-items{
+    position: absolute;
+    top: 2rem;
+    right: 0;
+    text-align: right;
+    padding: 0 7.5vw;
+}
+
 @media screen and (max-width: 1200px){
     .filter-container > .filter-btn{
         min-width: 15%;
+    }
+
+    .sorted-items{
+        top: -1rem;
+        left: 0;
+        text-align: left;
+        padding: 0 10vw;
+    }
+
+    .sort-container{
+        top: -4.5rem;
+        left: 9vw;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    .sorted-items{
+        padding: 0 4vw;
+    }
+
+    .sort-container{
+        left: 4vw;
     }
 }
 
@@ -543,6 +635,7 @@ a, a:active{
         right: 2rem;
         top: 7rem;
     }
+
     .star{
         width: 7vw;
         height: 7vw;
@@ -1049,9 +1142,6 @@ a, a:active{
         font-size: var(--font-size-2xs);
     }
 
-    .button-learn{
-        margin: var(--site-padding-m) auto;
-    }
 }
 
 
