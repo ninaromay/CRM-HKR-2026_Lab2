@@ -1,4 +1,4 @@
-// Functions
+// Function for show more button "..." for small screens
 function clickAndShow(showMe, hideMe){
     for(let i = 0; i < showMe.length; i++){
         showMe[i].style.display = "none"
@@ -18,15 +18,18 @@ readMore.addEventListener("click", function(){
 
 
 // Cards
+// Starting variables
 let currentCards = [];
 let activeProperty = "";
 
-// Card container
+// Get card container
 const cardContainer = document.getElementById("card-container");
+
+// Get total number of cards element and number of cards shown element
 const totalSkills = document.getElementById("total-skills");
 const currentSkills = document.getElementById("current-skills");
 
-// Function cards
+// Function cards control
 function updateCards(arr){
     currentCards = arr;
     currentSkills_counter = currentCards.length;
@@ -102,7 +105,7 @@ function resetSkills(arr){
     });
 }
 
-// Cards
+// Cards array
 const skills = [
     {
         "id": 0,
@@ -206,24 +209,31 @@ const skills = [
     }
 ];
 
-let totalSkills_counter = skills.length;
+// Cards counters
+let totalSkills_counter   = skills.length;
 let currentSkills_counter = currentCards.length;
 
+// Document load Event
 document.addEventListener("DOMContentLoaded", () => {
+    // Display cards on doument load
     cardGenerator(skills);
+
+    // Display number of cards shown from start all/all
     totalSkills.textContent = skills.length
     currentSkills.textContent = currentCards.length
 });
 
-// Filtering
+// Filtering buttons
 const allSkills     = document.getElementById("btn-all");
 const frontSkills   = document.getElementById("btn-front");
 const backSkills    = document.getElementById("btn-back");
 const fullSkills    = document.getElementById("btn-full");
 const androidSkills = document.getElementById("btn-android");
 
-const arrSkills = [ allSkills, frontSkills, backSkills, fullSkills, androidSkills ];
+// Array of the skill buttons 
+const arrSkills = [allSkills, frontSkills, backSkills, fullSkills, androidSkills];
 
+// All skills filter button
 allSkills.addEventListener("click", function(e){
     e.preventDefault();
 
@@ -236,6 +246,7 @@ allSkills.addEventListener("click", function(e){
     cardGenerator(skills);
 });
 
+// Front-end filter button
 frontSkills.addEventListener("click", function(e){
     e.preventDefault();
 
@@ -250,6 +261,7 @@ frontSkills.addEventListener("click", function(e){
     console.log(currentCards);
 });
 
+// Back-end filter button
 backSkills.addEventListener("click", function(e){
     e.preventDefault();
 
@@ -264,6 +276,7 @@ backSkills.addEventListener("click", function(e){
     console.log(currentCards);
 });
 
+// FullStack filter button
 fullSkills.addEventListener("click", function(e){
     e.preventDefault();
 
@@ -278,6 +291,7 @@ fullSkills.addEventListener("click", function(e){
     console.log(currentCards);
 });
 
+// Android filter button
 androidSkills.addEventListener("click", function(e){
     e.preventDefault();
 
@@ -292,26 +306,28 @@ androidSkills.addEventListener("click", function(e){
     console.log(currentCards);
 });
 
-// Sorting
+// Sorting buttons
 const sortName  = document.getElementById("sort-name");
 const sortProf  = document.getElementById("sort-prof");
 const sortYears = document.getElementById("sort-years");
 
+// Activate "name" sort
 sortName.addEventListener("click", function(e){
     e.preventDefault();
     activeProperty = "name";
     sortBy(currentCards, activeProperty);
 });
 
+// Activate "prof" sort
 sortProf.addEventListener("click", function(e){
     e.preventDefault();
     activeProperty = "prof";
     sortBy(currentCards, activeProperty);
 });
 
+// Activate "years" sort
 sortYears.addEventListener("click", function(e){
     e.preventDefault();
     activeProperty = "years";
     sortBy(currentCards, activeProperty);
 });
-
