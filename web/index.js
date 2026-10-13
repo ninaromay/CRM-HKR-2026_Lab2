@@ -16,7 +16,6 @@ readMore.addEventListener("click", function(){
     clickAndShow(fullTxt, readMore)
 })
 
-
 // Cards
 // Starting variables
 let currentCards = [];
@@ -94,11 +93,11 @@ function sortBy(arr, prop){
     cardGenerator(currentCards);
 }
 
-function resetSkills(arr){
+function resetSkills(arr, toRemove, toAdd){
     arr.forEach(skill => {
-        if(skill.classList.contains("active-filter")) {
-            skill.classList.remove("active-filter");
-            skill.classList.add("inactive-filter");
+        if(skill.classList.contains(toRemove)) {
+            skill.classList.remove(toRemove);
+            skill.classList.add(toAdd);
 
             skill.setAttribute('aria-pressed', 'false');
         }
@@ -237,7 +236,7 @@ const arrSkills = [allSkills, frontSkills, backSkills, fullSkills, androidSkills
 allSkills.addEventListener("click", function(e){
     e.preventDefault();
 
-    resetSkills(arrSkills);
+    resetSkills(arrSkills, "active-filter", "inactive-filter");
 
     this.classList.add("active-filter");
     this.classList.remove("inactive-filter");
@@ -250,7 +249,7 @@ allSkills.addEventListener("click", function(e){
 frontSkills.addEventListener("click", function(e){
     e.preventDefault();
 
-    resetSkills(arrSkills);
+    resetSkills(arrSkills, "active-filter", "inactive-filter");
 
     this.classList.add("active-filter");
     this.classList.remove("inactive-filter");
@@ -258,14 +257,13 @@ frontSkills.addEventListener("click", function(e){
 
     const newArr = skills.filter(skill => skill.category === "Front-end");
     cardGenerator(newArr);
-    console.log(currentCards);
 });
 
 // Back-end filter button
 backSkills.addEventListener("click", function(e){
     e.preventDefault();
 
-    resetSkills(arrSkills);
+    resetSkills(arrSkills, "active-filter", "inactive-filter");
 
     this.classList.add("active-filter");
     this.classList.remove("inactive-filter");
@@ -273,14 +271,13 @@ backSkills.addEventListener("click", function(e){
 
     const newArr = skills.filter(skill => skill.category === "Back-end");
     cardGenerator(newArr);
-    console.log(currentCards);
 });
 
 // FullStack filter button
 fullSkills.addEventListener("click", function(e){
     e.preventDefault();
 
-    resetSkills(arrSkills);
+    resetSkills(arrSkills, "active-filter", "inactive-filter");
 
     this.classList.add("active-filter");
     this.classList.remove("inactive-filter");
@@ -288,14 +285,13 @@ fullSkills.addEventListener("click", function(e){
 
     const newArr = skills.filter(skill => skill.category === "FullStack");
     cardGenerator(newArr);
-    console.log(currentCards);
 });
 
 // Android filter button
 androidSkills.addEventListener("click", function(e){
     e.preventDefault();
 
-    resetSkills(arrSkills);
+    resetSkills(arrSkills, "active-filter", "inactive-filter");
 
     this.classList.add("active-filter");
     this.classList.remove("inactive-filter");
@@ -303,19 +299,27 @@ androidSkills.addEventListener("click", function(e){
 
     const newArr = skills.filter(skill => skill.category === "Android");
     cardGenerator(newArr);
-    console.log(currentCards);
 });
 
 // Sorting buttons
-const sortName  = document.getElementById("sort-name");
-const sortProf  = document.getElementById("sort-prof");
-const sortYears = document.getElementById("sort-years");
+const sortName   = document.getElementById("sort-name");
+const sortProf   = document.getElementById("sort-prof");
+const sortYears  = document.getElementById("sort-years");
+
+// Sorting buttons array
+const sortSkills = [sortName, sortProf, sortYears];
 
 // Activate "name" sort
 sortName.addEventListener("click", function(e){
     e.preventDefault();
     activeProperty = "name";
     sortBy(currentCards, activeProperty);
+
+    resetSkills(sortSkills, "sort-active", "sort-inactive");
+
+    this.classList.add("sort-active");
+    this.classList.remove("sort-inactive");
+    this.setAttribute('aria-pressed', 'true');
 });
 
 // Activate "prof" sort
@@ -323,6 +327,12 @@ sortProf.addEventListener("click", function(e){
     e.preventDefault();
     activeProperty = "prof";
     sortBy(currentCards, activeProperty);
+
+    resetSkills(sortSkills, "sort-active", "sort-inactive");
+
+    this.classList.add("sort-active");
+    this.classList.remove("sort-inactive");
+    this.setAttribute('aria-pressed', 'true');
 });
 
 // Activate "years" sort
@@ -330,4 +340,10 @@ sortYears.addEventListener("click", function(e){
     e.preventDefault();
     activeProperty = "years";
     sortBy(currentCards, activeProperty);
+
+    resetSkills(sortSkills, "sort-active", "sort-inactive");
+
+    this.classList.add("sort-active");
+    this.classList.remove("sort-inactive");
+    this.setAttribute('aria-pressed', 'true');
 });
