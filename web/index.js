@@ -91,6 +91,17 @@ function sortBy(arr, prop){
     cardGenerator(currentCards);
 }
 
+function resetSkills(arr){
+    arr.forEach(skill => {
+        if(skill.classList.contains("active-filter")) {
+            skill.classList.remove("active-filter");
+            skill.classList.add("inactive-filter");
+
+            skill.setAttribute('aria-pressed', 'false');
+        }
+    });
+}
+
 // Cards
 const skills = [
     {
@@ -216,14 +227,7 @@ const arrSkills = [ allSkills, frontSkills, backSkills, fullSkills, androidSkill
 allSkills.addEventListener("click", function(e){
     e.preventDefault();
 
-    arrSkills.forEach(skill => {
-        if(skill.classList.contains("active-filter")) {
-            skill.classList.remove("active-filter");
-            skill.classList.add("inactive-filter");
-
-            skill.setAttribute('aria-pressed', 'false');
-        }
-    });
+    resetSkills(arrSkills);
 
     this.classList.add("active-filter");
     this.classList.remove("inactive-filter");
@@ -235,14 +239,7 @@ allSkills.addEventListener("click", function(e){
 frontSkills.addEventListener("click", function(e){
     e.preventDefault();
 
-    arrSkills.forEach(skill => {
-        if(skill.classList.contains("active-filter")) {
-            skill.classList.remove("active-filter");
-            skill.classList.add("inactive-filter");
-
-            skill.setAttribute('aria-pressed', 'false');
-        }
-    });
+    resetSkills(arrSkills);
 
     this.classList.add("active-filter");
     this.classList.remove("inactive-filter");
@@ -256,14 +253,7 @@ frontSkills.addEventListener("click", function(e){
 backSkills.addEventListener("click", function(e){
     e.preventDefault();
 
-    arrSkills.forEach(skill => {
-        if(skill.classList.contains("active-filter")) {
-            skill.classList.remove("active-filter");
-            skill.classList.add("inactive-filter");
-
-            skill.setAttribute('aria-pressed', 'false');
-        }
-    });
+    resetSkills(arrSkills);
 
     this.classList.add("active-filter");
     this.classList.remove("inactive-filter");
@@ -277,14 +267,7 @@ backSkills.addEventListener("click", function(e){
 fullSkills.addEventListener("click", function(e){
     e.preventDefault();
 
-    arrSkills.forEach(skill => {
-        if(skill.classList.contains("active-filter")) {
-            skill.classList.remove("active-filter");
-            skill.classList.add("inactive-filter");
-
-            skill.setAttribute('aria-pressed', 'false');
-        }
-    });
+    resetSkills(arrSkills);
 
     this.classList.add("active-filter");
     this.classList.remove("inactive-filter");
@@ -298,14 +281,7 @@ fullSkills.addEventListener("click", function(e){
 androidSkills.addEventListener("click", function(e){
     e.preventDefault();
 
-    arrSkills.forEach(skill => {
-        if(skill.classList.contains("active-filter")) {
-            skill.classList.remove("active-filter");
-            skill.classList.add("inactive-filter");
-
-            skill.setAttribute('aria-pressed', 'false');
-        }
-    });
+    resetSkills(arrSkills);
 
     this.classList.add("active-filter");
     this.classList.remove("inactive-filter");
@@ -339,7 +315,3 @@ sortYears.addEventListener("click", function(e){
     sortBy(currentCards, activeProperty);
 });
 
-
-/*"name": "HTML"
-  "proficiency": 5
-  "yearsExperience" : 3*/
