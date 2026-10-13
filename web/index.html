@@ -17,6 +17,17 @@
             <a class="inactive" href="contact.html"> Contact     </a>
         </nav>
     </header>
+    <div class="accessibility-container">
+        <img aria-pressed="false" class="inactive-accessibility-menu" id="accessibility-menu" src="images/other/burger-menu.svg" alt="Accessibility settings menu">
+        <div id="accessibility-buttons-container" class="accessibility-buttons-container acc-invisible">
+            <div class="accessibility-size-container">
+                <p>Size:</p>
+                <button class="acc-inactive-btn" id="acc-btn-size-s" data-text-size="acc-btn-size-s">S</button>
+                <button class="acc-active-btn"   id="acc-btn-size-m" data-text-size="acc-btn-size-m">M</button>
+                <button class="acc-inactive-btn" id="acc-btn-size-l" data-text-size="acc-btn-size-l">L</button>
+            </div>
+        </div>
+    </div>
     <main class="main-home">
         <img class="hero" src="images/hero.png" alt="Hero image home page website Tech Artist">
         <section id="hero-text">
@@ -33,11 +44,11 @@
         </section>
         <section id="filtering" class="site-padding">
             <div class="filter-container">
-                <button class="filter-btn active-filter"   aria-pressed="true"  id="btn-all">All Skills</button>
-                <button class="filter-btn inactive-filter" aria-pressed="false" id="btn-front">Front-end</button>
-                <button class="filter-btn inactive-filter" aria-pressed="false" id="btn-back">Back-end</button>
-                <button class="filter-btn inactive-filter" aria-pressed="false" id="btn-full">FullStack</button>
-                <button class="filter-btn inactive-filter" aria-pressed="false" id="btn-android">Android</button>
+                <button class="filter-btn active-filter"   aria-pressed="true"  data-category="all"       id="btn-all">All Skills</button>
+                <button class="filter-btn inactive-filter" aria-pressed="false" data-category="Front-end" id="btn-front">Front-end</button>
+                <button class="filter-btn inactive-filter" aria-pressed="false" data-category="Back-end"  id="btn-back">Back-end</button>
+                <button class="filter-btn inactive-filter" aria-pressed="false" data-category="FullStack" id="btn-full">FullStack</button>
+                <button class="filter-btn inactive-filter" aria-pressed="false" data-category="Android"   id="btn-android">Android</button>
             </div>
             <p class="sorted-items">Showing <span id="current-skills"></span> of <span id="total-skills"></span> skills</p>
             <div class="sort-container">
@@ -80,6 +91,7 @@
         </div>
         <p class="created-by">Created by Nina Romay Mingo 2026</p>
     </footer>
-    <script src="index.js"></script>
+    <script src="scripts/index.js"></script>
+    <script src="scripts/controlPanel.js"></script>
 </body>
 </html>
