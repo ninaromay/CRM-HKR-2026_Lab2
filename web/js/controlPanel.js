@@ -35,10 +35,33 @@ accMenu.addEventListener("click", function(e){
 const sizeButtons = document.querySelectorAll("[data-text-size]");
 
 const fontSizes = {
-    small: "80%",
-    medium: "100%",
-    large: "130%"
+    "small"  : "80%",
+    "medium" : "100%",
+    "large"  : "130%"
 };
+
+// Apply text size function
+function applySize(size){
+    document.documentElement.style.fontSize = fontSizes[size];
+    console.log('Initial state: '+ fontSizes[size])
+
+    sizeButtons.forEach(item => {
+        selectedBtn(item, item.dataset.textSize === size);
+    });
+    
+    // Save size
+    localStorage.setItem("textSize", size);
+}
+
+// On document load, apply size
+document.addEventListener("DOMContentLoaded", () => {
+    // Load size from localStorage
+    const savedSize = localStorage.getItem("textSize");
+
+    // Check if there is a saved size, else get default "medium" and apply
+    const initialSize = savedSize in fontSizes ? savedSize : "medium";
+    applySize(initialSize);
+});
 
 // Add eventlistener to the buttons
 sizeButtons.forEach(btn => {
@@ -49,11 +72,6 @@ sizeButtons.forEach(btn => {
         const size = btn.dataset.textSize;
 
         // Apply sizes
-        document.documentElement.style.fontSize = fontSizes[size];
-        console.log(fontSizes[size])
-
-        sizeButtons.forEach(item => {
-            selectedBtn(item, item === btn)
-        });
+        applySize(size);
     })
 })
