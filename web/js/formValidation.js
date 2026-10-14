@@ -208,12 +208,6 @@ subjectInput.addEventListener("click", function(e){
 // Form interaction
 form.addEventListener("submit", function(e){
     e.preventDefault();
-    // console.log("submit")
-
-    // console.log(isName)
-    // console.log(isEmail)
-    // console.log(isMessage)
-    // console.log(isSubject)
 
     // Missing more than one
     if(!isName || !isEmail || !isMessage || !isSubject){

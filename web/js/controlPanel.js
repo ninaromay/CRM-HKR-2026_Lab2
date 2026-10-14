@@ -75,3 +75,11 @@ sizeButtons.forEach(btn => {
         applySize(size);
     })
 })
+
+// Make menu clickable with "enter" or "spacebar"
+document.addEventListener("keydown", function(e) {
+  if (e.target.classList.contains("keyboard-clickable") && (e.key === "Enter" || e.key === " ")) {
+    e.preventDefault()
+    e.target.click();
+  }
+});
