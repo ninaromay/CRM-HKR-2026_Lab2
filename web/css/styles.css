@@ -1247,7 +1247,7 @@ a, a:active{
 }
 
 .acc-invisible{
-    display: hidden;
+    display: none;
     transform: scale(0);
     margin:0;
     padding:0;

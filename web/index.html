@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRM Porfolio</title>
     <link rel="icon" type="image/x-icon" href="images/favicon.png">
-    <link rel="stylesheet" href="styles.css" defer>
+    <link rel="stylesheet" href="css/styles.css" defer>
 </head>
 <body>
     <header class="nav">
@@ -22,9 +22,13 @@
         <div id="accessibility-buttons-container" class="accessibility-buttons-container acc-invisible">
             <div class="accessibility-size-container">
                 <p>Size:</p>
-                <button class="acc-inactive-btn" id="acc-btn-size-s" data-text-size="acc-btn-size-s">S</button>
-                <button class="acc-active-btn"   id="acc-btn-size-m" data-text-size="acc-btn-size-m">M</button>
-                <button class="acc-inactive-btn" id="acc-btn-size-l" data-text-size="acc-btn-size-l">L</button>
+                <button class="acc-inactive-btn" id="acc-btn-size-s" data-text-size="acc-btn-size-s" aria-pressed="false">S</button>
+                <button class="acc-active-btn"   id="acc-btn-size-m" data-text-size="acc-btn-size-m" aria-pressed="true">M</button>
+                <button class="acc-inactive-btn" id="acc-btn-size-l" data-text-size="acc-btn-size-l" aria-pressed="false">L</button>
+            </div>
+            <div class="accessibility-high-contrast-container">
+                <p>Activate high contrast:</p>
+                <div class="high-contrast"></div>
             </div>
         </div>
     </div>
@@ -91,7 +95,7 @@
         </div>
         <p class="created-by">Created by Nina Romay Mingo 2026</p>
     </footer>
-    <script src="scripts/index.js"></script>
-    <script src="scripts/controlPanel.js"></script>
+    <script src="js/index.js"  type="script"></script>
+    <script src="js/controlPanel.js" type="script"></script>
 </body>
 </html>
