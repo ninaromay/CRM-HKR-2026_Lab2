@@ -3,18 +3,23 @@ const accMenu = document.getElementById("accessibility-menu");
 const accMenuBtns = document.getElementById("accessibility-buttons-container");
 
 // Helper functions
-function toggleClass(element, remove, add){
-    if(element.classList.contains(remove)){
-        element.classList.remove(remove);
-        element.classList.add(add);
+function toggleClass(element, inactive, active){
+    const isActive = element.classList.contains(inactive);
 
-        if (element.hasAttribute("aria-pressed")) element.setAttribute("aria-pressed", "true");
-    } else {
-        element.classList.remove(add);
-        element.classList.add(remove);
+    element.classList.replace(
+        isActive ? inactive : active,
+        isActive ? active : inactive
+    );
 
-        if (element.hasAttribute("aria-pressed")) element.setAttribute("aria-pressed", "false");
+    if (element.hasAttribute("aria-pressed")) {
+        element.setAttribute("aria-pressed", String(isActive));
     }
+}
+
+function selectedBtn(element, isSelected){
+    element.classList.toggle("acc-active-btn", isSelected);
+    element.classList.toggle("acc-inactive-btn", !isSelected);
+    element.setAttribute("aria-pressed", String(isSelected));
 }
 
 // Access menu toggle
@@ -35,13 +40,22 @@ const fontSizes = {
     large: "120%"
 };
 
+// Add eventlistener to the buttons
 sizeButtons.forEach(btn => {
     btn.addEventListener("click", function(e){
         e.preventDefault();
 
-        const size = button.dataset.textSize;
+        // Read data size
+        const size = btn.dataset.textSize;
 
+        // Apply sizes
         document.documentElement.style.fontSize = fontSizes[size];
 
+        sizeButtons.forEach(item => {
+            const isSelected = item === btn;
+            item.setAttribute("aria-pressed", isSelected);
+            item.classList.toggle("acc-active-btn", isSelected);
+            item.classList.toggle("acc-inactive-btn", !isSelected);
+        });
     })
 })
