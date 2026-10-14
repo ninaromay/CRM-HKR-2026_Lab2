@@ -35,9 +35,9 @@ accMenu.addEventListener("click", function(e){
 const sizeButtons = document.querySelectorAll("[data-text-size]");
 
 const fontSizes = {
-    small: "90%",
+    small: "80%",
     medium: "100%",
-    large: "120%"
+    large: "130%"
 };
 
 // Add eventlistener to the buttons
@@ -50,12 +50,10 @@ sizeButtons.forEach(btn => {
 
         // Apply sizes
         document.documentElement.style.fontSize = fontSizes[size];
+        console.log(fontSizes[size])
 
         sizeButtons.forEach(item => {
-            const isSelected = item === btn;
-            item.setAttribute("aria-pressed", isSelected);
-            item.classList.toggle("acc-active-btn", isSelected);
-            item.classList.toggle("acc-inactive-btn", !isSelected);
+            selectedBtn(item, item === btn)
         });
     })
 })

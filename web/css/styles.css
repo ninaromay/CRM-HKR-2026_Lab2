@@ -1205,7 +1205,7 @@ a, a:active{
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
+    z-index: 2;
 }
 
 #accessibility-menu{
@@ -1219,7 +1219,7 @@ a, a:active{
     padding: 0.1rem;
     border-radius: var(--border-radious);
     pointer-events: auto;
-    z-index: 2;
+    z-index: 3;
 }
 
 .active-accessibility-menu{
@@ -1254,11 +1254,11 @@ a, a:active{
     pointer-events: none;
 }
 
-.accessibility-size-container{
+.accessibility-size-container, .accessibility-high-contrast-container{
     padding: 1rem;
 }
 
-.accessibility-size-container > p{
+.accessibility-size-container > p, .accessibility-high-contrast-container > p{
     color: var(--color-background);
     margin-bottom: 1rem;
 }
