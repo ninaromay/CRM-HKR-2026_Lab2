@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
     applySize(initialSize);
 });
 
-// Add eventlistener to the buttons
+// Add eventlistener to the size buttons
 sizeButtons.forEach(btn => {
     btn.addEventListener("click", function(e){
         e.preventDefault();
@@ -82,4 +82,19 @@ document.addEventListener("keydown", function(e) {
     e.preventDefault()
     e.target.click();
   }
+});
+
+// Slider high contrast
+const contrastToggle = document.getElementById("contrast-toggle");
+
+contrastToggle.addEventListener("click", () => {
+    // Activate toggle CSS
+    const isOn = contrastToggle.getAttribute("aria-checked") === "true";
+
+    contrastToggle.setAttribute("aria-checked", String(!isOn));
+    contrastToggle.classList.toggle("is-on", !isOn);
+
+    // Toggle High contrast Colors
+
+
 });

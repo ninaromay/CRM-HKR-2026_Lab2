@@ -1325,7 +1325,7 @@ a, a:active{
 }
 
 .contrast-toggle.is-on .contrast-toggle-thumb {
-    transform: translateX(1.3rem);
+    transform: translateX(1.7rem);
 }
 
 .contrast-toggle:focus-visible {
