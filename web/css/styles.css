@@ -43,6 +43,16 @@
     --border-radious: 20px;
 }
 
+:root.high-contrast{
+    --color-navy:       #000000;
+    --color-highlight:  #eef7f1;
+    
+    --color-blue:       #ff0000;
+    --color-background: #ffffff;
+    --color-border:     #000000;
+    --color-muted:      #ffffff;
+}
+
 *{
     margin: 0;
     padding: 0;

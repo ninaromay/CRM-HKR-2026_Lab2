@@ -94,7 +94,8 @@ contrastToggle.addEventListener("click", () => {
     contrastToggle.setAttribute("aria-checked", String(!isOn));
     contrastToggle.classList.toggle("is-on", !isOn);
 
-    // Toggle High contrast Colors
-
+    // Toggle High contrast 
+    // Colors
+    document.documentElement.classList.toggle("high-contrast", !isOn);
 
 });
