@@ -1254,6 +1254,7 @@ a, a:active{
     pointer-events: none;
 }
 
+/*Size*/
 .accessibility-size-container, .accessibility-high-contrast-container{
     padding: 1rem;
 }
@@ -1287,3 +1288,5 @@ a, a:active{
     background-color: var(--color-background);
     border: 2px solid var(--color-blue);
 }
+
+/*High Contrast slider*/
