@@ -212,10 +212,11 @@ form.addEventListener("submit", function(e){
     // Missing more than one
     if(!isName || !isEmail || !isMessage || !isSubject){
         alert("You are missing information");
+
     } else {
         window.scrollTo(0, 0);
         // Valid form display message
-        submitSuccess.textContent = "Successfully submited!";
+        submitSuccess.textContent = "Thanks for your feedback, " + nameInput.value + "!";
         submitSuccess.style.display = "block";
         submitSuccess.insertAdjacentHTML('beforeend', "<a id='success-home' href='index.html'>Home</a>");
         
