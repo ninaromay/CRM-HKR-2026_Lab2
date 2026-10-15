@@ -25,7 +25,7 @@
     --size-M:    	    1.5rem;
     --size-S:    	    1rem;
     --size-XS:    	    0.5rem;
-    --size-2XS: 	    0.2rem;
+    --size-2XS: 	    0.3rem;
     
     --line-height-heading-s:    1.1;
     --line-height-heading-m:    1.2;
@@ -101,7 +101,7 @@ a, a:active{
     font-size: var(--font-size-m);
     font-weight: bold;
 
-    transition: all 0.2s ease-in;
+    transition: all 0.3s ease-in;
 }
 
 .inactive{
@@ -246,7 +246,7 @@ a, a:active{
     border-radius: var(--border-radious);
     border: 3px solid var(--color-navy);
     font-weight: bold;
-    transition: all 0.2s ease-in;
+    transition: all 0.3s ease-in;
 }
 
 .button-learn:active, .button-learn:hover{
@@ -263,12 +263,12 @@ a, a:active{
 
 #read-more{
     min-width: 2rem;
-    padding: 0.1rem 0.3rem;
+    padding: 0.1rem 0.2rem;
     color: var(--color-navy);
     border-radius: var(--border-radious);
     border: 2px solid var(--color-navy);
     font-weight: bold;
-    transition: all 0.2s ease-in;
+    transition: all 0.3s ease-in;
 }
 
 @media screen and (max-width: 1100px){
@@ -314,7 +314,7 @@ a, a:active{
         margin-top: var(--site-padding);
         margin-bottom: var(--site-padding);
         margin-left: 60vw;
-        padding: var(--site-padding-xs) 0.2rem;
+        padding: var(--site-padding-xs) 0.3rem;
         font-weight: normal;
         width: 8rem;
     }
@@ -340,7 +340,7 @@ a, a:active{
     border-radius: 24px;
     padding: 1rem;
     margin-right: 1rem;
-    transition: all 0.2s ease-in;
+    transition: all 0.3s ease-in;
 }
 
 .inactive-filter{
@@ -387,14 +387,14 @@ a, a:active{
 .sort-inactive{
     border: 2px solid var(--color-muted);
     background-color: var(--color-background);
-    transition: all 0.2s ease-in;
+    transition: all 0.3s ease-in;
 }
 
 .sort-active{
     border: 2px solid var(--color-blue);
     border-radius: 12px;
     transform: scale(1.2);
-    transition: all 0.2s ease-in;
+    transition: all 0.3s ease-in;
 }
 
 .sort-inactive:hover{
@@ -621,7 +621,7 @@ a, a:active{
     .card-stars{
         min-width: 0;
         grid-template-columns: repeat(5, 20%);
-        grid-gap: 0.2rem;
+        grid-gap: 0.3rem;
         top: 7rem;
         right: 1rem;
     }
@@ -1243,8 +1243,8 @@ a, a:active{
 }
 
 .acc-visible{
-    width: 20vw;
-    height: 20vw;
+    width: 20em;
+    height: auto;
 
     background-color: var(--color-navy);
 
@@ -1281,7 +1281,7 @@ a, a:active{
     font-size: var(--font-size-m);
     border-radius: 8px;
 
-    transition: all 0.2s ease-in;
+    transition: all 0.3s ease-in;
 }
 
 .accessibility-size-container > .acc-active-btn {
@@ -1318,16 +1318,16 @@ a, a:active{
     align-items: center;
     border-radius: 100px;
 
-    transition: background-color 0.2s ease;
+    transition: background-color 0.3s ease;
 }
 
 .contrast-toggle-thumb {
     width: 1.3rem;
     height: 1.3rem;
-    background-color: var(--color-background);
+    background-color: var(--color-highlight);
     border-radius: 50%;
     transform: translateX(0);
-    transition: transform 0.2s ease;
+    transition: transform 0.3s ease;
 }
 
 .contrast-toggle.is-on .contrast-toggle-track {
@@ -1341,4 +1341,31 @@ a, a:active{
 .contrast-toggle:focus-visible {
     outline: 3px solid red;
     outline-offset: 3px;
+}
+
+@media screen and (max-width: 1008px){
+    #accessibility-menu{
+        height: 4rem;
+        width: 4rem;
+        top: 85vh;
+        right: 5vw;
+    }
+
+    .acc-visible{
+        width: 90%;
+        height: auto;
+
+        top: 70%;
+        right: 5vw;
+    }
+}
+
+@media screen and (max-width: 1008px){
+    .acc-visible{
+        width: 90%;
+        height: auto;
+
+        top: 60%;
+        right: 5vw;
+    }
 }

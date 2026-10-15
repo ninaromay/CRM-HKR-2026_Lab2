@@ -43,7 +43,6 @@ const fontSizes = {
 // Apply text size function
 function applySize(size){
     document.documentElement.style.fontSize = fontSizes[size];
-    console.log('Initial state: '+ fontSizes[size])
 
     sizeButtons.forEach(item => {
         selectedBtn(item, item.dataset.textSize === size);
@@ -53,14 +52,32 @@ function applySize(size){
     localStorage.setItem("textSize", size);
 }
 
+function highContrast(bool){
+    document.documentElement.classList.toggle("high-contrast", bool);
+    contrastToggle.classList.toggle("is-on", bool);
+    contrastToggle.setAttribute("aria-checked", String(bool));
+
+    // Save Contrast
+    localStorage.setItem("contrast", String(bool));
+}
+
+function updateSettings(size, bool){
+    applySize(size);
+    highContrast(bool);
+}
+
 // On document load, apply size
 document.addEventListener("DOMContentLoaded", () => {
     // Load size from localStorage
     const savedSize = localStorage.getItem("textSize");
+    const savedContrast = localStorage.getItem("contrast");
+    console.log(savedContrast)
 
     // Check if there is a saved size, else get default "medium" and apply
     const initialSize = savedSize in fontSizes ? savedSize : "medium";
-    applySize(initialSize);
+    const initialContrast = savedContrast === "true";
+    
+    updateSettings(initialSize, initialContrast);
 });
 
 // Add eventlistener to the size buttons
@@ -91,11 +108,7 @@ contrastToggle.addEventListener("click", () => {
     // Activate toggle CSS
     const isOn = contrastToggle.getAttribute("aria-checked") === "true";
 
-    contrastToggle.setAttribute("aria-checked", String(!isOn));
-    contrastToggle.classList.toggle("is-on", !isOn);
-
     // Toggle High contrast 
     // Colors
-    document.documentElement.classList.toggle("high-contrast", !isOn);
-
+    highContrast(!isOn);
 });
