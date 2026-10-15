@@ -1230,6 +1230,17 @@ a, a:active{
     border-radius: var(--border-radious);
     pointer-events: auto;
     z-index: 3;
+
+    border: 2px solid var(--color-navy)
+
+}
+
+#accessibility-menu:hover{
+    border: 2px solid var(--color-background);
+}
+
+#accessibility-menu:focus-visible{
+    border: 5px solid red;
 }
 
 .active-accessibility-menu{
