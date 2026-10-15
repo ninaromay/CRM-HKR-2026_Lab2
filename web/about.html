@@ -17,6 +17,33 @@
             <a class="inactive" href="contact.html"> Contact  </a>
         </nav>
     </header>
+    <div class="accessibility-container">
+        <img tabindex="0" aria-pressed="false" class="inactive-accessibility-menu keyboard-clickable" id="accessibility-menu" src="images/other/burger-menu.svg" alt="Accessibility settings menu">
+        <div id="accessibility-buttons-container" class="accessibility-buttons-container acc-invisible">
+            <div class="accessibility-size-container">
+                <p>Size:</p>
+                <button class="acc-inactive-btn" id="acc-btn-size-s" data-text-size="small" aria-pressed="false">S</button>
+                <button class="acc-active-btn"   id="acc-btn-size-m" data-text-size="medium" aria-pressed="true">M</button>
+                <button class="acc-inactive-btn" id="acc-btn-size-l" data-text-size="large" aria-pressed="false">L</button>
+            </div>
+            <div class="accessibility-high-contrast-container">
+                <p>Activate high contrast:</p>
+                <div class="high-contrast">
+                    <button
+                        type="button"
+                        class="contrast-toggle"
+                        id="contrast-toggle"
+                        role="switch"
+                        aria-checked="false"
+                        >
+                        <span class="contrast-toggle-track" aria-hidden="true">
+                            <span class="contrast-toggle-thumb"></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     <main class="main-about">
         <section>
             <div class="bullet"></div>
@@ -192,7 +219,7 @@
         </section>
         <div class="line"></div>
     </main>
-<footer class="footer">
+    <footer class="footer">
         <nav class="nav-footer">
             <a class="inactive-footer"   href="index.html">   Home        </a>
             <a class="inactive-footer" href="gallery.html"> Gallery     </a>
@@ -223,5 +250,6 @@
         </div>
         <p class="created-by">Created by Nina Romay Mingo 2026</p>
     </footer>
+    <script src="js/controlPanel.js" defer></script>
 </body>
 </html>

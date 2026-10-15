@@ -31,7 +31,6 @@ accMenu.addEventListener("click", function(e){
 });
 
 // Accessibility control pannel buttons
-// Size
 const sizeButtons = document.querySelectorAll("[data-text-size]");
 
 const fontSizes = {
@@ -48,7 +47,7 @@ function applySize(size){
         selectedBtn(item, item.dataset.textSize === size);
     });
     
-    // Save size
+    // Save Size
     localStorage.setItem("textSize", size);
 }
 
@@ -109,6 +108,5 @@ contrastToggle.addEventListener("click", () => {
     const isOn = contrastToggle.getAttribute("aria-checked") === "true";
 
     // Toggle High contrast 
-    // Colors
     highContrast(!isOn);
 });
