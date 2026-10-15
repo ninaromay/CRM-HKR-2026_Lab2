@@ -61,7 +61,7 @@ function highContrast(bool){
     localStorage.setItem("contrast", String(bool));
 }
 
-function updateSettings(size, bool){
+function applySettings(size, bool){
     applySize(size);
     highContrast(bool);
 }
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const initialSize = savedSize in fontSizes ? savedSize : "medium";
     const initialContrast = savedContrast === "true";
     
-    updateSettings(initialSize, initialContrast);
+    applySettings(initialSize, initialContrast);
 });
 
 // Add eventlistener to the size buttons
