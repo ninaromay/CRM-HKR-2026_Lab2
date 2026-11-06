@@ -78,7 +78,7 @@ function sortBy(arr, prop){
             break;
         case "years":
             currentCards = arr.sort((first, second) => 
-                second.yearsExperience - first.yearsExperience
+                first.yearsExperience - second.yearsExperience
             );
             break;
         case "prof":
